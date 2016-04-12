@@ -4,11 +4,9 @@ feature 'User completes todo' do
   scenario 'successfully' do
     sign_in_as ("test@test.com")
 
-    click_on 'Create Todo'
-    fill_in 'Title', with: 'Tester todo'
-    click_on 'Submit'
+    add_todo('Tester todo')
     click_on 'Todone!'
 
-    expect(page).to have_css '.todos li.completed', text: 'Tester todo'
+    expect(page).to display_completed_todo('Tester todo')
   end
 end
