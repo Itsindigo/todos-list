@@ -25,4 +25,15 @@ describe 'todo complete!' do
 
     expect(todo).to be_completed
   end
+
+end
+
+describe 'mark_incomplete!' do
+  it "should be marked incomplete" do
+    todo = Todo.create!(completed_at: Time.now)
+
+    todo.mark_incomplete!
+
+    expect(todo).not_to be_completed
+  end
 end
